@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": -1,
+      "slug": "novaya-tema",
+      "title": "новая тема",
+      "excerpt": "нов",
+      "bodyContent": "новая тема и новая тема",
+      "content": "новая тема и новая тема\n<p><img src=\"/admin-uploads/1783871932068-70924acf.jpg\" alt=\"\" /></p>\n<p><img src=\"/admin-uploads/1783871935875-d9e95041.jpg\" alt=\"\" /></p>",
+      "date": "12 июля 2026 г.",
+      "dateIso": "2026-07-12T15:58:57.740Z",
+      "image": "/admin-uploads/1783871913471-29dae69c.png",
+      "galleryImages": [
+        "/admin-uploads/1783871932068-70924acf.jpg",
+        "/admin-uploads/1783871935875-d9e95041.jpg"
+      ],
+      "rubricSlug": "puteshestviya",
+      "rubricTitle": "Путешествия",
+      "categoryId": 6,
+      "createdAt": "2026-07-12T15:58:57.740Z",
+      "updatedAt": "2026-07-12T15:58:57.740Z"
+    }
+  ]
+}

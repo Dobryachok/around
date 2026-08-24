@@ -1,0 +1,251 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.subtitle,
+.message {
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.createCard {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 140px 90px auto;
+  gap: 12px;
+  align-items: end;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-theme-card);
+  background: #fff;
+}
+
+.createCard label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.createCard span {
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+.createCard input,
+.createCard select,
+.tagFields input,
+.tagFields select,
+.subtagRow input,
+.addSubtag input {
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 9px 10px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.createCard input[type='color'],
+.tagFields input[type='color'] {
+  width: 54px;
+  height: 36px;
+  padding: 3px;
+}
+
+.createCard button,
+.addSubtag button,
+.save {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: var(--color-text);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tagList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tagCard {
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-theme-card);
+  background: #fff;
+}
+
+.tagHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tagFields {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 130px 60px;
+  gap: 10px;
+  flex: 1;
+}
+
+.remove,
+.subtagRow button {
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.subtagList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0 0 28px;
+}
+
+.subtagRow,
+.addSubtag {
+  display: flex;
+  gap: 8px;
+}
+
+.subtagRow input,
+.addSubtag input {
+  flex: 1;
+}
+
+.addSubtag {
+  margin: 10px 0 0 28px;
+}
+
+.error {
+  margin: 0;
+  color: #b42318;
+}
+
+.assignmentCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-theme-card);
+  background: #fff;
+}
+
+.assignmentCard h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.assignmentCard p {
+  margin: 6px 0 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.assignmentSearch {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.assignmentSearch span {
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+.assignmentSearch input,
+.assignmentSearch select {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.assignmentTags {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assignmentTagGroup {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.assignmentTagGroup > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.assignmentTagGroup small {
+  color: var(--color-text-muted);
+}
+
+.assignmentSubtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 9px 0 0 26px;
+}
+
+.assignmentSubtags label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+.resetAssignment {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  color: var(--color-hero-blue);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.save {
+  align-self: flex-start;
+  font-size: 14px;
+}
+
+.save:disabled {
+  opacity: 0.6;
+}
+
+@media (max-width: 720px) {
+  .createCard,
+  .tagFields {
+    grid-template-columns: 1fr;
+  }
+
+  .tagHeader {
+    flex-direction: column;
+  }
+}

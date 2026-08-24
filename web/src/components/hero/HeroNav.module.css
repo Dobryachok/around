@@ -1,0 +1,256 @@
+.nav {
+  --dropdown-bg: rgba(248, 249, 250, 0.42);
+  --dropdown-text: rgba(12, 14, 18, 0.98);
+  --dropdown-muted: rgba(12, 14, 18, 0.98);
+  --dropdown-hover: rgba(38, 42, 48, 0.045);
+  --dropdown-shadow: 0 10px 24px rgba(30, 40, 55, 0.1);
+  --dropdown-backdrop: blur(12px);
+  flex-shrink: 0;
+  font-family: var(--font-nav);
+  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+
+.nav:not(.heroGridNav) {
+  border-bottom: 1px solid var(--nav-line);
+}
+
+.toneLight {
+  --nav-line: rgba(38, 42, 48, 0.32);
+  --nav-color: rgba(32, 36, 42, 0.9);
+  --nav-hover: rgba(18, 20, 24, 1);
+}
+
+.toneDark {
+  --nav-line: rgba(255, 255, 255, 0.42);
+  --nav-color: rgba(255, 255, 255, 0.94);
+  --nav-hover: #ffffff;
+}
+
+.heroGridNav.toneLight {
+  --nav-line: rgba(255, 255, 255, 0.52);
+  --nav-color: rgba(12, 14, 18, 0.98);
+  --nav-hover: #000000;
+  --dropdown-text: rgba(12, 14, 18, 0.98);
+  --dropdown-muted: rgba(12, 14, 18, 0.98);
+}
+
+.heroGridNav.toneDark {
+  --dropdown-bg: transparent;
+  --dropdown-text: rgba(255, 255, 255, 0.94);
+  --dropdown-muted: rgba(255, 255, 255, 0.72);
+  --dropdown-hover: rgba(255, 255, 255, 0.1);
+  --dropdown-shadow: none;
+  --dropdown-backdrop: none;
+}
+
+.heroGridNav.transparentBackground {
+  --dropdown-bg: rgba(255, 255, 255, 0.28);
+  --dropdown-shadow: 0 8px 20px rgba(30, 40, 55, 0.08);
+  --dropdown-backdrop: blur(12px);
+}
+
+.heroGridNav.toneLight:not(.transparentBackground) {
+  --nav-line: var(--color-text-nav);
+  --nav-color: rgba(32, 36, 42, 0.9);
+  --nav-hover: rgba(18, 20, 24, 1);
+}
+
+.desktopRow {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: var(--nav-height);
+  width: 100%;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px 0 52px;
+  border-right: 1px solid var(--nav-line);
+  transition: border-color 0.35s var(--ease-out);
+}
+
+.navRight {
+  display: flex;
+  align-items: stretch;
+  margin-left: auto;
+  padding-right: 52px;
+}
+
+.navSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(20px, 2.5vw, 36px);
+  padding: 0 clamp(20px, 2.5vw, 36px);
+  border-right: 1px solid var(--nav-line);
+}
+
+.navSection:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.heroGridNav .desktopRow {
+  display: grid;
+}
+
+.navGridHome {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px 0 52px;
+}
+
+.navGridPortfolio {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 clamp(16px, 2vw, 28px);
+}
+
+.navGridCenter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 2.5vw, 36px);
+  padding: 0 clamp(12px, 1.5vw, 24px);
+}
+
+.navGridRight {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(20px, 2.5vw, 36px);
+  padding: 0 52px 0 clamp(16px, 2vw, 28px);
+}
+
+.link {
+  font-family: var(--font-nav);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--nav-color);
+  text-decoration: none;
+  transition: color 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--nav-hover);
+  opacity: 0.85;
+}
+
+.mobileRow {
+  display: none;
+}
+
+.mobileToggle {
+  font-family: var(--font-nav);
+  font-size: 20px;
+  color: var(--nav-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.mobileLink {
+  display: block;
+  padding: 12px 20px;
+  font-family: var(--font-nav);
+  font-size: 14px;
+  color: var(--nav-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--nav-line);
+}
+
+.mobileLink:hover {
+  color: var(--nav-hover);
+}
+
+@media (max-width: 768px) {
+  .desktopRow {
+    display: none;
+  }
+
+  .mobileRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    min-height: var(--nav-height);
+    border-bottom: 1px solid var(--nav-line);
+  }
+
+  .mobileMenu {
+    display: block;
+    border-top: 1px solid var(--nav-line);
+  }
+}
+
+@media (max-width: 1200px) {
+  .navLeft {
+    padding-left: 32px;
+  }
+
+  .navRight {
+    padding-right: 32px;
+  }
+
+  .navSection {
+    gap: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .navGridHome {
+    padding-left: 32px;
+  }
+
+  .navGridRight {
+    padding-right: 32px;
+  }
+
+  .navGridCenter {
+    gap: 16px;
+  }
+
+  .navGridPortfolio,
+  .navGridRight {
+    gap: 16px;
+  }
+
+  .link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navSection {
+    gap: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .navGridCenter,
+  .navGridPortfolio,
+  .navGridRight {
+    gap: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}

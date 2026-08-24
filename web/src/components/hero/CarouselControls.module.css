@@ -1,0 +1,60 @@
+.controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ctrl-border, #3d7dd6);
+  background: transparent;
+  color: var(--ctrl-color, #3d7dd6);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.3s var(--ease-out),
+    color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  background: var(--ctrl-hover-bg, rgba(61, 125, 214, 0.14));
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn.large {
+  width: 58px;
+  height: 58px;
+  font-size: 24px;
+  font-weight: 600;
+  border-width: 2px;
+}
+
+.light {
+  --ctrl-border: var(--color-hero-blue);
+  --ctrl-color: var(--color-hero-blue);
+  --ctrl-hover-bg: rgba(61, 125, 214, 0.14);
+}
+
+.dark {
+  --ctrl-border: rgba(255, 255, 255, 0.8);
+  --ctrl-color: #ffffff;
+  --ctrl-hover-bg: rgba(255, 255, 255, 0.14);
+}
+
+.muted {
+  --ctrl-border: rgba(48, 50, 53, 0.42);
+  --ctrl-color: #303235;
+  --ctrl-hover-bg: rgba(48, 50, 53, 0.08);
+}

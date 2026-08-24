@@ -1,0 +1,32 @@
+.page {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8px 0 0;
+}
+
+.title {
+  width: fit-content;
+  margin: 0 0 28px;
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--type-ink);
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: var(--type-rule-height);
+  margin-top: 10px;
+  background: var(--type-ink);
+}
+
+@media (max-width: 768px) {
+  .title {
+    margin-bottom: 22px;
+  }
+}

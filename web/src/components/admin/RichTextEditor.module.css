@@ -1,0 +1,73 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-theme-card);
+  overflow: hidden;
+  background: #fff;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.toolbar button {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  border-color: var(--color-text-nav);
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border);
+  margin: 0 2px;
+}
+
+.surface {
+  min-height: 220px;
+  padding: 16px 18px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-text);
+  outline: none;
+}
+
+.surface:empty::before {
+  content: attr(data-placeholder);
+  color: var(--color-text-nav);
+}
+
+.surface :global(h2),
+.surface :global(h3) {
+  font-family: var(--font-serif);
+  margin: 0 0 0.6em;
+}
+
+.surface :global(p) {
+  margin: 0 0 0.9em;
+}
+
+.surface :global(ul),
+.surface :global(ol) {
+  margin: 0 0 0.9em 1.2em;
+}
+
+.surface :global(a) {
+  color: var(--color-hero-blue);
+}

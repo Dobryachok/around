@@ -1,0 +1,195 @@
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  min-height: clamp(620px, 72vh, 920px);
+  margin-top: calc(-1 * var(--nav-height));
+  padding-top: var(--nav-height);
+  background-color: #c8b49a;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: clamp(620px, 72vh, 920px);
+  margin: 0 auto;
+}
+
+.polaroid {
+  position: absolute;
+  width: clamp(118px, 11vw, 168px);
+  padding: 10px 10px 22px;
+  background: #fff;
+  box-shadow:
+    0 2px 4px rgba(40, 30, 20, 0.12),
+    0 10px 28px rgba(40, 30, 20, 0.18);
+  text-decoration: none;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+  transform: rotate(var(--rotate, 0deg));
+  transform-origin: center center;
+}
+
+.polaroid:hover {
+  transform: rotate(var(--rotate, 0deg)) translateY(-6px) scale(1.04);
+  box-shadow:
+    0 4px 8px rgba(40, 30, 20, 0.16),
+    0 16px 36px rgba(40, 30, 20, 0.24);
+  z-index: 20 !important;
+}
+
+.photoFrame {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ececec;
+}
+
+.photoFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(12%) contrast(1.03);
+  transition: filter 0.4s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.polaroid:hover .photoFrame img {
+  filter: grayscale(0%) contrast(1.02);
+  transform: scale(1.03);
+}
+
+.caption {
+  margin: 10px 0 0;
+  padding: 0 2px;
+  font-family: var(--font-sans);
+  font-size: clamp(9px, 0.85vw, 11px);
+  font-weight: var(--type-label-weight);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--type-ink-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.searchWrap {
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(520px, 88vw);
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(48, 50, 53, 0.08);
+  box-shadow: 0 10px 28px rgba(48, 50, 53, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transform: translateX(-50%);
+  transition:
+    background-color 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
+}
+
+.searchWrap:focus-within {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 32px rgba(48, 50, 53, 0.08);
+}
+
+.searchIcon {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(48, 50, 53, 0.4);
+  border-radius: 50%;
+  position: relative;
+}
+
+.searchIcon::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 1.5px;
+  right: -5px;
+  bottom: -1px;
+  background: rgba(48, 50, 53, 0.4);
+  transform: rotate(45deg);
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  color: var(--type-ink);
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--type-ink-faint);
+}
+
+.searchInput::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    min-height: 640px;
+  }
+
+  .scene {
+    height: 640px;
+  }
+
+  .polaroid {
+    width: clamp(100px, 14vw, 140px);
+    padding: 8px 8px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    min-height: 520px;
+  }
+
+  .scene {
+    height: 520px;
+  }
+
+  .polaroid {
+    width: clamp(88px, 22vw, 118px);
+    padding: 7px 7px 16px;
+  }
+
+  .caption {
+    font-size: 8px;
+    margin-top: 7px;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    min-height: 480px;
+  }
+
+  .scene {
+    height: 480px;
+  }
+
+  .polaroid {
+    width: 78px;
+    padding: 6px 6px 14px;
+  }
+}

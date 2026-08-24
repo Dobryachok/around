@@ -1,0 +1,17 @@
+.gridColumns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.12fr) minmax(0, 1.12fr);
+}
+
+.gridLineV {
+  border-right: 1px solid var(--nav-line, rgba(255, 255, 255, 0.52));
+}
+
+.gridLinePhoto {
+  border-left: 1px solid var(--nav-line, rgba(255, 255, 255, 0.52));
+  border-right: 1px solid var(--nav-line, rgba(255, 255, 255, 0.52));
+}
+
+.gridLineH {
+  border-bottom: 1px solid var(--nav-line, rgba(255, 255, 255, 0.52));
+}

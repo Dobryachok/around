@@ -1,0 +1,53 @@
+.article {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.article :global(p) {
+  margin: 0 0 1.2em;
+}
+
+.article :global(h2),
+.article :global(h3),
+.article :global(h4) {
+  font-family: var(--font-serif);
+  margin: 1.6em 0 0.8em;
+}
+
+.article :global(img) {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em 0;
+}
+
+.article :global(blockquote) {
+  margin: 1.5em 0;
+  padding-left: 1.2em;
+  border-left: 3px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+}
+
+.article :global(a) {
+  color: var(--color-hero-blue);
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-text-nav);
+}
+
+.featured {
+  margin-bottom: 28px;
+}
+
+.featured img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}

@@ -1,0 +1,12 @@
+.section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 72vh;
+  min-height: 72dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: transparent;
+  margin-top: clamp(56px, 8vh, 96px);
+}

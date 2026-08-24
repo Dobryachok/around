@@ -1,0 +1,57 @@
+{
+  "tags": [
+    {
+      "slug": "puteshestviya",
+      "title": "Путешествия",
+      "area": "blog",
+      "color": "#3d7dd6",
+      "legacyCategorySlug": "puteshestviya"
+    },
+    {
+      "slug": "pticy",
+      "title": "Птицы",
+      "area": "blog",
+      "color": "#3d7dd6",
+      "legacyCategorySlug": "pticy"
+    },
+    {
+      "slug": "priroda",
+      "title": "Природа",
+      "area": "blog",
+      "color": "#3d7dd6",
+      "legacyCategorySlug": "priroda"
+    },
+    {
+      "slug": "proza",
+      "title": "Проза",
+      "area": "texts",
+      "color": "#3d7dd6",
+      "legacyCategorySlug": "proza"
+    },
+    {
+      "slug": "poetry",
+      "title": "Поэзия",
+      "area": "texts",
+      "color": "#3d7dd6",
+      "legacyCategorySlug": "poetry"
+    },
+    {
+      "slug": "proverka",
+      "title": "проверка",
+      "area": "blog",
+      "color": "#b53dd6"
+    }
+  ],
+  "subtags": [
+    {
+      "slug": "proverka-1",
+      "title": "проверка 1",
+      "parentTagSlug": "proverka"
+    },
+    {
+      "slug": "proverka-2",
+      "title": "проверка 2",
+      "parentTagSlug": "proverka"
+    }
+  ]
+}

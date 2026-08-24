@@ -1,0 +1,183 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.subtitle,
+.message {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.headerActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.headerActions button,
+.saveButton {
+  border: none;
+  background: var(--color-text);
+  color: #fff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.link {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-hero-blue);
+  text-decoration: none;
+}
+
+.search,
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search span,
+.field > span {
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.search input,
+.field input,
+.field select {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.pinnedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.pinnedItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pinnedItem:last-child {
+  border-bottom: none;
+}
+
+.pinnedItem strong {
+  display: block;
+  font-size: 14px;
+}
+
+.pinnedItem small {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.pinnedActions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.pinnedActions button {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pinnedActions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.removeButton {
+  border: none !important;
+  background: none !important;
+  color: var(--color-text-muted) !important;
+}
+
+.postPicker {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.postOption {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.postOption:last-child {
+  border-bottom: none;
+}
+
+.postOption strong {
+  display: block;
+  font-size: 14px;
+}
+
+.postOption small {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.error {
+  margin: 0;
+  color: #b42318;
+}
+
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 720px) {
+  .header {
+    flex-direction: column;
+  }
+}
