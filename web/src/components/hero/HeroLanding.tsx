@@ -45,22 +45,24 @@ export default function HeroLanding() {
       <div className={styles.layout}>
         <div className={styles.intro}>
           <h1 className={styles.title}>Aroundmyself</h1>
-          <p className={styles.tagline}>
-            Открываю окно.
-            <br />
-            Впускаю невозможное.
-          </p>
-          <a className={styles.moreLink} href={`#${NEWS_SECTION_ID}`}>
-            <span className={styles.ctaGlow} aria-hidden="true" />
-            <span className={styles.moreLinkLabel}>Последние новости</span>
-            <span className={styles.moreLinkArrow} aria-hidden="true">
-              →
-            </span>
-          </a>
+          <div className={styles.introBody}>
+            <p className={styles.tagline}>
+              Открываю окно.
+              <br />
+              Впускаю невозможное.
+            </p>
+            <a className={styles.moreLink} href={`#${NEWS_SECTION_ID}`}>
+              <span className={styles.moreLinkLabel}>Последние новости</span>
+              <span className={styles.moreLinkArrow} aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
         </div>
 
         <div className={styles.collage} aria-label="Избранные фотографии">
-          <div className={styles.colorPanel} aria-hidden="true" />
+          <div className={styles.backingMain} aria-hidden="true" />
+          <div className={styles.backingRight} aria-hidden="true" />
           <div className={styles.outline} aria-hidden="true" />
 
           <HeroPhoto
@@ -108,15 +110,15 @@ export default function HeroLanding() {
             <i />
             <span>история</span>
           </div>
-        </div>
 
-        <aside className={styles.meta}>
-          <p>
-            Вдохновение
-            <br />
-            в деталях мира
-          </p>
-        </aside>
+          <aside className={styles.meta}>
+            <p>
+              Вдохновение
+              <br />
+              в деталях мира
+            </p>
+          </aside>
+        </div>
       </div>
     </div>
   );

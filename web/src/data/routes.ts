@@ -18,6 +18,10 @@ export function textsPath() {
   return '/texts';
 }
 
+export function feedPath() {
+  return '#news-hero';
+}
+
 export function portfolioPath(section?: string) {
   if (!section || section === 'interview') {
     return '/portfolio';

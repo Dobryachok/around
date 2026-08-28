@@ -5,21 +5,8 @@
   min-height: min(820px, 100dvh);
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
-}
-
-.section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.7;
-  background-image:
-    linear-gradient(rgba(59, 61, 66, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 61, 66, 0.03) 1px, transparent 1px);
-  background-size: 25% 100%, 100% 50%;
-  mask-image: linear-gradient(90deg, transparent 2%, #000 22%, #000 90%, transparent);
 }
 
 .inner {
@@ -132,6 +119,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  overflow: visible;
 }
 
 .orbit {
@@ -157,28 +145,33 @@
 }
 
 .feature {
+  --primary-face-clip: polygon(10% 3%, 90% 0, 90% 88%, 10% 84%);
   position: absolute;
   z-index: 2;
-  left: calc((var(--gallery-start) - var(--feature-width) - var(--stories-col-gap)) / 2);
-  right: auto;
+  left: calc(
+    (var(--gallery-start) - var(--feature-width) - var(--stories-col-gap)) / 2 -
+      clamp(36px, 4vw, 60px)
+  );
   top: 50%;
   width: var(--feature-width);
   height: 520px;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  overflow: hidden;
+  overflow: visible;
   transform: translateY(-50%);
-  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%);
-  filter: drop-shadow(0 20px 36px rgba(30, 40, 55, 0.14));
 }
 
-.feature::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(238, 242, 246, 0.42), transparent 38%);
-  pointer-events: none;
+.feature > .primaryFaceShadowWrap {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 14px 28px rgba(30, 40, 55, 0.14))
+    drop-shadow(0 4px 10px rgba(30, 40, 55, 0.08));
+}
+
+.feature > .primaryFaceShadowWrap > .primaryFacePair {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  clip-path: var(--primary-face-clip);
 }
 
 .featureHalf {
@@ -210,10 +203,90 @@
   transform: translateX(-50%);
 }
 
+.primaryFacePair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: linear-gradient(90deg, #f7f7f5 0 50%, #111 50% 100%);
+  clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 94%);
+}
+
+.primaryFaceHalf {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.primaryFaceBird {
+  border-right: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.primaryFaceHalf img {
+  position: absolute;
+  top: 0;
+  display: block;
+  height: 165%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  filter: grayscale(45%) contrast(1.04);
+}
+
+/*
+ * Центр лица птицы находится примерно на 56% ширины исходника,
+ * центр лица человека — на 51%. Раздельные сдвиги совмещают линию бровей
+ * и оставляют центральный шов между половинами лиц.
+ */
+.primaryFaceBird img {
+  right: 0;
+  transform: translate(35%, -13%);
+}
+
+.primaryFacePerson img {
+  left: 0;
+  transform: translate(-51%, -6%);
+}
+
+.primaryFaceNumber {
+  position: absolute;
+  z-index: 2;
+  bottom: 14px;
+  font-family: var(--font-sans);
+  font-size: var(--type-meta-size);
+  font-weight: var(--type-label-weight);
+  letter-spacing: var(--type-meta-tracking);
+  color: var(--type-ink-on-dark-soft);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.primaryFaceBird .primaryFaceNumber {
+  right: 14px;
+  color: rgba(48, 50, 53, 0.82);
+  text-shadow: none;
+}
+
+.primaryFacePerson .primaryFaceNumber {
+  right: 14px;
+}
+
+.feature > .primaryFaceShadowWrap .primaryFaceNumber {
+  bottom: 16%;
+}
+
+.feature > .primaryFaceShadowWrap .primaryFaceBird .primaryFaceNumber {
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.62);
+}
+
+.feature > .primaryFaceShadowWrap .primaryFacePerson .primaryFaceNumber {
+  right: 22%;
+}
+
 .gallery {
   position: relative;
   z-index: 2;
-  width: var(--gallery-width);
+  width: calc(var(--gallery-width) + 11%);
   height: 330px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -225,18 +298,47 @@
   min-width: 0;
   height: 100%;
   margin: 0;
-  overflow: hidden;
-  background: #dfe4e9;
-  box-shadow: 0 12px 26px rgba(30, 40, 55, 0.1);
+  overflow: visible;
+  background: transparent;
   transition: transform 0.4s var(--ease-out);
 }
 
-.galleryItem:nth-child(even) {
-  transform: translateY(24px);
+.galleryItemShadowWrap {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 14px 28px rgba(30, 40, 55, 0.14))
+    drop-shadow(0 4px 10px rgba(30, 40, 55, 0.08));
+}
+
+.galleryItemFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #dfe4e9;
+}
+
+.galleryItem:nth-child(2),
+.galleryItem:nth-child(4) {
+  margin-left: calc(var(--photo-gap) * -1);
+}
+
+.galleryItem:nth-child(2) .galleryItemShadowWrap,
+.galleryItem:nth-child(4) .galleryItemShadowWrap {
+  width: calc(100% - var(--photo-gap));
+}
+
+.galleryItem:nth-child(2) .galleryItemFrame,
+.galleryItem:nth-child(4) .galleryItemFrame {
+  border-left: 1px solid rgba(255, 255, 255, 0.72);
 }
 
 .galleryItem:hover {
   transform: translateY(-6px);
+}
+
+.galleryItem:nth-child(even) {
+  transform: translateY(24px);
 }
 
 .galleryItem:nth-child(even):hover {
@@ -256,6 +358,64 @@
   transform: scale(1.035);
 }
 
+.galleryItem:nth-child(1) img {
+  transform: none;
+}
+
+.galleryItem:nth-child(1):hover img {
+  transform: scale(1.035);
+}
+
+.galleryItem:nth-child(2) img {
+  position: absolute;
+  inset: 0;
+  width: 135%;
+  height: 100%;
+  max-width: none;
+  object-position: 30% 44%;
+  transform: translate(-10%, 0);
+}
+
+.galleryItem:nth-child(2):hover img {
+  transform: translate(-10%, 0) scale(1.02);
+}
+
+.galleryItem:nth-child(3) img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 49% 38%;
+  transform: translateX(36%);
+}
+
+.galleryItem:nth-child(3):hover img {
+  transform: translateX(36%) scale(1.02);
+}
+
+.galleryItem:nth-child(4) .galleryItemFrame {
+  background: #1a1a1a;
+}
+
+.galleryItem:nth-child(4) img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 168%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 44% 42%;
+  transform: translate(-38%, 0);
+}
+
+.galleryItem:nth-child(4):hover img {
+  transform: translate(-38%, 0) scale(1.02);
+}
+
 .galleryItem figcaption {
   position: absolute;
   right: 9px;
@@ -267,6 +427,15 @@
   text-transform: uppercase;
   color: var(--type-ink-on-dark-soft);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.galleryItem:nth-child(-n + 2) figcaption {
+  color: rgba(48, 50, 53, 0.82);
+  text-shadow: none;
+}
+
+.mobileGallery {
+  display: none;
 }
 
 @media (max-width: 1100px) {
@@ -291,7 +460,7 @@
   .inner {
     --stories-col-gap: 0px;
     min-height: auto;
-    padding: calc(var(--nav-height) + 40px) 36px 64px;
+    padding: 40px 36px 64px;
     grid-template-columns: 1fr;
     gap: 50px;
   }
@@ -322,7 +491,7 @@
 
 @media (max-width: 600px) {
   .inner {
-    padding: calc(var(--nav-height) + 28px) 28px 48px;
+    padding: 28px 28px 48px;
     gap: 38px;
   }
 
@@ -362,5 +531,249 @@
     width: 76%;
     height: 265px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    min-height: auto;
+  }
+
+  .inner {
+    min-height: auto;
+    padding: 48px 0 52px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .copy {
+    max-width: none;
+    padding: 0 20px;
+  }
+
+  .heading {
+    font-size: clamp(40px, 10vw, 52px);
+    margin-bottom: 18px;
+  }
+
+  .lead {
+    max-width: none;
+  }
+
+  .visual {
+    position: relative;
+    min-height: auto;
+    display: block;
+    padding: 0;
+  }
+
+  .orbit,
+  .feature,
+  .gallery {
+    display: none;
+  }
+
+  .mobileGallery {
+    display: flex;
+    gap: 12px;
+    --photo-gap: 5px;
+    padding: 0 20px 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .mobileGallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobileGalleryItem {
+    position: relative;
+    flex: 0 0 min(72vw, 280px);
+    aspect-ratio: 3 / 4;
+    margin: 0;
+    overflow: visible;
+    scroll-snap-align: start;
+    background: transparent;
+  }
+
+  .mobileGalleryShadowWrap {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 12px 26px rgba(30, 40, 55, 0.14));
+  }
+
+  .mobileFacePair .mobileGalleryShadowWrap {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: hidden;
+  }
+
+  .mobileFaceHalf {
+    position: relative;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .mobileGalleryItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(35%) saturate(0.75) contrast(1.03);
+  }
+
+  .mobileGalleryItem:has(> .primaryFaceShadowWrap) {
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .mobileGalleryItem:has(> .primaryFaceShadowWrap) > .primaryFaceShadowWrap {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 12px 26px rgba(30, 40, 55, 0.14));
+  }
+
+  .mobileGalleryItem:has(> .primaryFaceShadowWrap) .primaryFacePair {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    clip-path: none;
+  }
+
+  .mobileGalleryItem:has(> .primaryFaceShadowWrap) .primaryFaceHalf img {
+    width: auto;
+    height: 165%;
+    max-width: none;
+    object-fit: contain;
+  }
+
+  .mobileFacePair {
+    clip-path: none;
+  }
+
+  .mobileFacePair:nth-child(2) .mobileFaceRight,
+  .mobileFacePair:nth-child(3) .mobileFaceRight {
+    width: calc(100% - var(--photo-gap));
+    margin-left: calc(var(--photo-gap) * -1);
+  }
+
+  .mobileFaceRight {
+    border-left: 1px solid rgba(255, 255, 255, 0.72);
+  }
+
+  .mobileFaceHalf img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    filter: grayscale(35%) saturate(0.75) contrast(1.03);
+  }
+
+  /* 03 — как desktop gallery 1 */
+  .mobileFacePair:nth-child(2) .mobileFaceLeft img {
+    left: 0;
+    width: 100%;
+    object-position: center;
+    transform: none;
+  }
+
+  /* 04 — как desktop gallery 2 */
+  .mobileFacePair:nth-child(2) .mobileFaceRight img {
+    left: 0;
+    width: 135%;
+    object-position: 30% 44%;
+    transform: translate(-10%, 0);
+  }
+
+  /* 05 — как desktop gallery 3 */
+  .mobileFacePair:nth-child(3) .mobileFaceLeft img {
+    right: 0;
+    left: auto;
+    width: 200%;
+    object-position: 49% 38%;
+    transform: translateX(36%);
+  }
+
+  /* 06 — как desktop gallery 4 */
+  .mobileFacePair:nth-child(3) .mobileFaceRight img {
+    left: 0;
+    width: 168%;
+    object-position: 44% 42%;
+    transform: translate(-38%, 0);
+  }
+
+  /* 07/08 — split-face */
+  .mobileFacePair:nth-child(4) .mobileFaceLeft {
+    background: #f7f7f5;
+  }
+
+  .mobileFacePair:nth-child(4) .mobileFaceRight {
+    background: #111;
+  }
+
+  .mobileFacePair:nth-child(4) .mobileFaceLeft img {
+    right: 0;
+    left: auto;
+    width: auto;
+    height: 165%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center;
+    transform: translate(35%, -13%);
+  }
+
+  .mobileFacePair:nth-child(4) .mobileFaceRight img {
+    left: 0;
+    right: auto;
+    width: auto;
+    height: 165%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center;
+    transform: translate(-51%, -6%);
+  }
+
+  .mobileFaceNumber {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    bottom: 9px;
+    font-family: var(--font-sans);
+    font-size: var(--type-meta-size);
+    font-weight: var(--type-label-weight);
+    letter-spacing: var(--type-meta-tracking);
+    color: var(--type-ink-on-dark-soft);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+  }
+
+  .mobileFacePair:nth-child(2) .mobileFaceLeft .mobileFaceNumber {
+    color: rgba(48, 50, 53, 0.82);
+    text-shadow: none;
+  }
+
+  .mobileGalleryItem figcaption {
+    position: absolute;
+    right: 10px;
+    bottom: 9px;
+    font-family: var(--font-sans);
+    font-size: var(--type-meta-size);
+    font-weight: var(--type-label-weight);
+    letter-spacing: var(--type-meta-tracking);
+    text-transform: uppercase;
+    color: var(--type-ink-on-dark-soft);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  }
+
+  .mobileGalleryItem:nth-child(2) figcaption {
+    color: rgba(48, 50, 53, 0.82);
+    text-shadow: none;
   }
 }

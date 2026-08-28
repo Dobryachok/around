@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { NewsItem } from '../../types';
+import CarouselControls from './CarouselControls';
 import NewsCarousel from './NewsCarousel';
 import styles from './HeroNews.module.css';
 
@@ -41,6 +42,10 @@ export default function HeroNews({
               Читать новость
               <span aria-hidden="true">→</span>
             </Link>
+          </div>
+
+          <div className={styles.featureControls}>
+            <CarouselControls onPrev={onPrev} onNext={onNext} variant="dark" />
           </div>
         </div>
 

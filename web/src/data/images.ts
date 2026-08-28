@@ -48,6 +48,8 @@ export const block3Images = {
   gallery2: '/photo/block3_new/4.jpg',
   gallery3: '/photo/block3_new/5.jpg',
   gallery4: '/photo/block3_new/6.jpg',
+  gallery5: '/photo/block3_new/7.jpg',
+  gallery6: '/photo/block3_new/8.jpg',
 };
 
 export const heroImageFallbacks = {

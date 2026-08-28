@@ -21,7 +21,9 @@ export default function NewsCarousel({
     <div className={styles.panel}>
       <div className={styles.header}>
         <span className={styles.heading}>Последние новости</span>
-        <CarouselControls onPrev={onPrev} onNext={onNext} variant="muted" />
+        <div className={styles.headerControls}>
+          <CarouselControls onPrev={onPrev} onNext={onNext} variant="muted" />
+        </div>
       </div>
 
       <ul className={styles.list}>

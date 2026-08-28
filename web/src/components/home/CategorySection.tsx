@@ -29,10 +29,6 @@ export default function CategorySection({ title, themes }: CategorySectionProps)
 
   return (
     <section className={styles.section} data-nav-bg="light">
-      <div className={styles.glow} aria-hidden="true" />
-      <div className={styles.glowSoft} aria-hidden="true" />
-      <div className={`${styles.glow} ${styles.glowMirror}`} aria-hidden="true" />
-      <div className={`${styles.glowSoft} ${styles.glowSoftMirror}`} aria-hidden="true" />
       <div className={styles.inner}>
         <header className={styles.header}>
           <div className={styles.headerCopy}>

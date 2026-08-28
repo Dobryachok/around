@@ -19,6 +19,10 @@
 
   --max-width: 1200px;
   --content-width: 960px;
+  --archive-content-max-width: min(100%, calc(var(--content-width) * 0.7 + 30vw));
+  --archive-inline-padding: calc(32px * 0.7);
+  --archive-inline-padding-mobile: calc(20px * 0.7);
+  --archive-scene-max-width: min(100%, calc(1008px + 30vw));
   --nav-height: 56px;
   --hero-gradient: linear-gradient(165deg, #e8edf2 0%, #c5d4e4 45%, #8fa8c4 100%);
 

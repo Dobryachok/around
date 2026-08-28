@@ -9,6 +9,11 @@
   padding: 48px 32px 0;
 }
 
+.main[data-layout='archive'] {
+  max-width: var(--archive-content-max-width);
+  padding-inline: var(--archive-inline-padding);
+}
+
 .title {
   font-family: var(--font-serif);
   font-size: clamp(32px, 4vw, 44px);
@@ -21,6 +26,10 @@
 @media (max-width: 768px) {
   .main {
     padding: 36px 20px 0;
+  }
+
+  .main[data-layout='archive'] {
+    padding-inline: var(--archive-inline-padding-mobile);
   }
 
   .title {

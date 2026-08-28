@@ -41,7 +41,7 @@ export default function CategoryPage() {
           onSearchChange={setSearchQuery}
         />
       )}
-      <PageLayout title={isPhotoCategory ? undefined : archive.title}>
+      <PageLayout title={isPhotoCategory ? undefined : archive.title} variant="archive">
         {isPhotoCategory ? (
           <PhotoThemeCardGrid
             posts={filteredPosts}

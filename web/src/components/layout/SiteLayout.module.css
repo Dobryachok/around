@@ -4,6 +4,13 @@
   min-height: 100dvh;
 }
 
+@media (max-width: 768px) {
+  .page,
+  .home {
+    padding-top: 0;
+  }
+}
+
 .home {
   min-height: 0;
 }

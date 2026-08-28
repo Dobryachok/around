@@ -15,7 +15,7 @@
 .scene {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--archive-scene-max-width);
   height: clamp(620px, 72vh, 920px);
   margin: 0 auto;
 }
@@ -176,6 +176,13 @@
   .caption {
     font-size: 8px;
     margin-top: 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 

@@ -58,3 +58,15 @@
   --ctrl-color: #303235;
   --ctrl-hover-bg: rgba(48, 50, 53, 0.08);
 }
+
+@media (max-width: 768px) {
+  .btn {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .controls {
+    gap: 12px;
+  }
+}

@@ -8,48 +8,6 @@
   isolation: isolate;
 }
 
-.glow {
-  position: absolute;
-  z-index: 0;
-  left: -2%;
-  top: 0;
-  width: min(62vw, 760px);
-  aspect-ratio: 1;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(219, 151, 104, 0.2), transparent 70%);
-  filter: blur(16px);
-  transform: translateY(-30%);
-}
-
-.glowSoft {
-  position: absolute;
-  z-index: 0;
-  left: 8%;
-  top: 18%;
-  width: min(46vw, 560px);
-  aspect-ratio: 1;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(205, 158, 123, 0.14), transparent 72%);
-  filter: blur(14px);
-  transform: translateY(-30%);
-}
-
-.glowMirror {
-  left: auto;
-  right: -2%;
-  top: auto;
-  bottom: 0;
-  transform: translate(10%, 60%);
-}
-
-.glowSoftMirror {
-  left: auto;
-  right: 8%;
-  top: auto;
-  bottom: 18%;
-  transform: translate(10%, 60%);
-}
-
 .inner {
   position: relative;
   z-index: 1;

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { scrollToContacts } from '../../data/navUtils';
+import { scrollToContacts, scrollToNews } from '../../data/navUtils';
 import StickySiteNav from './StickySiteNav';
 import styles from './SiteLayout.module.css';
 
@@ -9,16 +9,20 @@ export default function SiteLayout() {
   const isHome = location.pathname === '/';
 
   useEffect(() => {
-    if (location.hash !== '#contacts') {
+    if (location.hash !== '#contacts' && location.hash !== '#news-hero') {
       window.scrollTo(0, 0);
     }
   }, [location.pathname]);
 
   useEffect(() => {
-    if (location.hash !== '#contacts') return;
+    if (location.hash !== '#contacts' && location.hash !== '#news-hero') return;
 
     const frame = requestAnimationFrame(() => {
-      scrollToContacts();
+      if (location.hash === '#contacts') {
+        scrollToContacts();
+      } else {
+        scrollToNews();
+      }
     });
 
     return () => cancelAnimationFrame(frame);

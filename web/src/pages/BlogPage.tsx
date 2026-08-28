@@ -37,7 +37,7 @@ export default function BlogPage() {
     searchQuery || selectedFilters.length > 0 ? 'Ничего не найдено.' : undefined;
 
   return (
-    <PageLayout>
+    <PageLayout variant="archive">
       <div className={styles.page} data-nav-bg="light">
         <h1 className={styles.title}>Блог</h1>
         <BlogToolbar
